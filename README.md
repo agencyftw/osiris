@@ -1,3 +1,5 @@
+> Agency FTW fork: [product ownership and reviewed proposal](docs/agencyftw/README.md). Upstream application and license are retained; the proposed enterprise edition is not implemented by this handover.
+
 <div align="center">
 
 # ⬡ OSIRIS
