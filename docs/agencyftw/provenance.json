@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "agencyftw/platform",
+  "sourcePullRequest": 178,
+  "sourceCommit": "2ecb52ed80186541c99af90c0cb96f0889277257",
+  "submodule": {
+    "path": "packages/osiris",
+    "url": "https://github.com/simplifaisoul/osiris.git",
+    "commit": "08097a662b1e4936c511d4e5c134cea41ab64f2f"
+  },
+  "reviewedUpstreamCommit": "3f9e951304ac782a70a7f282f36e30410ed8aac1",
+  "destinationRepository": "agencyftw/osiris",
+  "files": {
+    "PRD.md": {
+      "sourcePath": "docs/osiris/PRD.md",
+      "bytes": 18892,
+      "sha256": "d4aa1e3ea87a490ca56abdebda0f571da0999664c06935138daae3c8d3661802",
+      "gitBlob": "d110efbe0b638d1a06c4cf652674f4f33aad8a54"
+    },
+    "platform.gitmodules": {
+      "sourcePath": ".gitmodules",
+      "bytes": 229,
+      "sha256": "8497f08aebdbc33f88499813e235ec949583bce063e40e4577f9bcae04fea2b9",
+      "gitBlob": "a7302f2230fbdd9c36d833ece751ee1ccc518119"
+    }
+  },
+  "sourceRootLicensePresent": false,
+  "upstreamLicense": "MIT (upstream code only; original platform proposal license not established)"
+}

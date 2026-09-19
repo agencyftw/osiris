@@ -1,0 +1,6 @@
+[submodule "openclaw/plugins/prm"]
+	path = openclaw/plugins/prm
+	url = https://github.com/agencyftw/prm-plugin-openclaw.git
+[submodule "packages/osiris"]
+	path = packages/osiris
+	url = https://github.com/simplifaisoul/osiris.git
