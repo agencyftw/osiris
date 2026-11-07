@@ -1,15 +1,19 @@
 {
-  "name": "osiris",
+  "name": "@agencyftw/osiris-source",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.18.0",
+  "engines": {
+    "node": ">=24.21.0 <25"
+  },
   "scripts": {
-    "predev": "node tools/prepare-map-worker.mjs",
-    "dev": "next dev",
-    "prebuild": "node tools/prepare-map-worker.mjs",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "test": "vitest run",
+    "dev": "nx run web:dev",
+    "build": "nx run web:build",
+    "start": "nx run web:start",
+    "lint": "nx run-many -t lint",
+    "typecheck": "nx run-many -t typecheck",
+    "test": "nx run-many -t test",
+    "validate": "nx run-many -t lint typecheck test",
     "test:watch": "vitest",
     "test:live": "RUN_LIVE_TESTS=1 vitest run"
   },
@@ -34,6 +38,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/geojson": "7946.0.16",
     "@types/google-libphonenumber": "^7.4.30",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -43,7 +48,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
     "tailwindcss": "^4",
-    "typescript": "^5",
+    "nx": "22.7.7",
+    "typescript": "5.9.3",
     "vitest": "^2.1.9"
   }
 }

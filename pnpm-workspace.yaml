@@ -1,0 +1,8 @@
+packages:
+  - .
+  - intel
+
+allowBuilds:
+  esbuild: true
+  nx: false
+  sharp: true

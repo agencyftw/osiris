@@ -1,0 +1,13 @@
+{
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "name": "intel",
+  "projectType": "application",
+  "root": "intel",
+  "sourceRoot": "intel",
+  "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": { "command": "node server.js", "cwd": "intel" }
+    }
+  }
+}

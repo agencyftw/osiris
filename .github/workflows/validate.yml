@@ -1,0 +1,19 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    uses: agencyftw/.github/.github/workflows/site-validate.yml@18f9f2c8e8812ab4b6564e9afea03edb50664134
+    with:
+      package_manager: pnpm
+      node_version: "24.21.0"
+      lint_command: pnpm lint
+      typecheck_command: pnpm typecheck
+      test_command: pnpm test

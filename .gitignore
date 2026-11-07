@@ -1,5 +1,7 @@
 # Dependencies
 /node_modules
+**/node_modules/
+/.nx/
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -49,7 +51,6 @@ scripts/
 
 # AI agent config files
 CLAUDE.md
-AGENTS.md
 
 # Internal dev notes
 DO_NOT_PUSH.md
@@ -63,3 +64,4 @@ scanner_backend_backup.js
 
 # Saved camera catalogue
 /.cache/
+/off

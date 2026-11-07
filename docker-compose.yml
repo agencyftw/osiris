@@ -44,8 +44,8 @@ services:
 
   osiris-intel:
     build:
-      context: ./intel
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: intel/Dockerfile
     container_name: osiris-intel
     ports:
       - "4000:4000"
