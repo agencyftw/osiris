@@ -33,9 +33,11 @@ disables.
 
 ## Release and rollback
 
-Pull requests run the shared AgencyFTW validation workflow. Docker publication
-remains an independent release path. Production hosting and Cloudflare DNS are
-unchanged by the monorepo adoption.
+Pull requests run the AgencyFTW validation contract. This public fork cannot
+call reusable workflows from the private `agencyftw/.github` repository, so its
+local workflow mirrors the shared install, lint, typecheck, test, and build
+pattern. Docker publication remains an independent release path. Production
+hosting and Cloudflare DNS are unchanged by the monorepo adoption.
 
 Before any future origin or Cloudflare routing change:
 

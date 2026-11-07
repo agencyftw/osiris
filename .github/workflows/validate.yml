@@ -9,10 +9,26 @@ permissions:
 
 jobs:
   validate:
-    uses: agencyftw/.github/.github/workflows/site-validate.yml@18f9f2c8e8812ab4b6564e9afea03edb50664134
-    with:
-      package_manager: pnpm
-      node_version: "24.21.0"
-      lint_command: pnpm lint
-      typecheck_command: pnpm typecheck
-      test_command: pnpm test
+    runs-on: ubuntu-latest
+    steps:
+      # This public fork cannot call the private agencyftw/.github reusable
+      # workflow. Keep these steps aligned with site-validate.yml instead.
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Install pnpm
+        run: corepack enable && corepack prepare pnpm@11.18.0 --activate
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.21.0"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+          registry-url: https://npm.pkg.github.com
+      - name: Install locked dependencies
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
+        run: pnpm install --frozen-lockfile
+      - name: Validate Nx task graph
+        run: pnpm validate
+      - name: Build production application
+        run: pnpm build
