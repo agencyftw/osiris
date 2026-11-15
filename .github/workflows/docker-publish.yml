@@ -25,6 +25,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
+        with:
+          node-version: "24"
+
+      - name: Check native image notes contract before publication
+        run: |
+          (cd .github/actions/render-release-notes && sha256sum --check SHA256SUMS)
+          node --test scripts/docker-release-notes.test.mjs
+
       # arm64 is built under emulation — needed for CasaOS on ARM SBCs.
       - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
@@ -45,7 +54,8 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=sha,format=short
 
-      - uses: docker/build-push-action@v6
+      - id: image
+        uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/amd64,linux/arm64
@@ -54,3 +64,18 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Retain shared-format native image release notes
+        env:
+          RELEASE_SOURCE_SHA: ${{ github.sha }}
+          RELEASE_DIGEST: ${{ steps.image.outputs.digest }}
+          RELEASE_NATIVE_TAG: ${{ steps.meta.outputs.version }}
+        run: |
+          (cd .github/actions/render-release-notes && sha256sum --check SHA256SUMS)
+          node scripts/docker-release-notes.mjs "$RUNNER_TEMP/osiris-image-release-notes.md"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: osiris-image-release-notes-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/osiris-image-release-notes.md
+          if-no-files-found: error
+          retention-days: 90

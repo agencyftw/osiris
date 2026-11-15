@@ -1,0 +1,23 @@
+name: Render product release notes
+description: Validate a reviewed release manifest and render reader-facing GitHub release notes.
+inputs:
+  manifest:
+    description: Path to the reviewed JSON release manifest in the caller checkout.
+    required: true
+  output:
+    description: Destination Markdown path.
+    default: release-notes.md
+outputs:
+  body-path:
+    description: Absolute path to rendered Markdown.
+    value: ${{ steps.render.outputs.body-path }}
+runs:
+  using: composite
+  steps:
+    - id: render
+      shell: bash
+      env:
+        RELEASE_MANIFEST: ${{ inputs.manifest }}
+        RELEASE_OUTPUT: ${{ inputs.output }}
+        RELEASE_ACTION_PATH: ${{ github.action_path }}
+      run: node "$RELEASE_ACTION_PATH/render.mjs" "$RELEASE_MANIFEST" "$RELEASE_OUTPUT"
