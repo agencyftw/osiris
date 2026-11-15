@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "kind": "release-notes-component-snapshot",
+  "sourceRepository": "agencyftw/.github",
+  "sourceCommit": "084d14ef89a2e58e3728515c0e912b0f0117ecf7",
+  "files": {
+    "action.yml": "b1c6850137088f6edbd72ed02fc5dc4c77da4ee6140776f3679948ee439524f6",
+    "render.mjs": "59885c75c8293e55068c7933f38c927ae95d5b7a043614d93880fefb32ce9160"
+  },
+  "sourceBlobs": {
+    "action.yml": "38b47d105bddd86159804fec9a0081686417fade",
+    "render.mjs": "10325f31d1d0579f1b57dfb5b91baaae6411a139"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "product": "Osiris Docker image",
+  "profile": "service",
+  "summary": "Multi-platform Docker image publication through the existing GHCR workflow. The immutable index digest below is the publication result, not proof of a production rollout.",
+  "highlights": [
+    {
+      "title": "Review native release identity and evidence",
+      "body": "The native release owner retains source admission, build and publication authority. These shared-format notes describe its exact selected output."
+    }
+  ],
+  "access": [
+    {
+      "kind": "docs",
+      "label": "Operators",
+      "url": "https://github.com/agencyftw/osiris",
+      "instructions": "Read the repository installation and operating instructions"
+    }
+  ],
+  "requirements": [
+    "Retain the exact source revision and native verification evidence.",
+    "Release notes do not grant deployment, credential or publication authority."
+  ],
+  "upgrade": "Use the retained immutable image digest in the existing deployment process. Preserve Cloudflare routing and qualify a production-equivalent preview before any origin change.",
+  "rollback": "Keep the prior immutable image reference and the existing production origin/DNS rollback lane. Change one routing boundary at a time.",
+  "knownIssues": [
+    "This note artifact does not change DNS, production hosting or the upstream simplifaisoul/osiris relationship.",
+    "The existing Docker publication workflow remains independent of application validation and production deployment."
+  ],
+  "evidence": [
+    {
+      "label": "Repository",
+      "url": "https://github.com/agencyftw/osiris"
+    }
+  ],
+  "changes": {
+    "Maintenance": [
+      "Retain the native release output identity with shared product release notes."
+    ]
+  }
+}
