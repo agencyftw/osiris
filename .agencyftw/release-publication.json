@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "kind": "release-publication-config",
+  "product": {
+    "id": "agencyftw/osiris",
+    "profile": "service"
+  },
+  "versioning": {
+    "engine": "none"
+  },
+  "notes": {
+    "directory": "docs/releases/notes",
+    "defaultLocale": "en-US",
+    "locales": [
+      "en-US"
+    ],
+    "audiences": [
+      "github"
+    ]
+  },
+  "artifacts": {
+    "sourcePolicy": "exact"
+  },
+  "release": {
+    "mode": "none",
+    "reason": "No shared release writer is admitted for this repository; existing native operations retain their current ownership."
+  },
+  "publication": {
+    "mode": "disabled",
+    "targets": [],
+    "reason": "Shared publication is disabled: the inherited OCI publisher remains independent; private-provider access and an exact native OCI notes/readback adapter are not qualified."
+  }
+}
